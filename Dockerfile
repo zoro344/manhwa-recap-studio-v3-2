@@ -1,7 +1,7 @@
 # =============================================================================
 # Manhwa Recap Studio — Docker image for Hugging Face Spaces
 # Runs the entire app (Next.js + Python pipeline + socket.io + Caddy) in one
-# container. Free 16 GB RAM, 50 GB storage, 24/7 online.
+# container.
 # =============================================================================
 
 FROM ubuntu:22.04
@@ -25,6 +25,7 @@ ENV PATH="${BUN_INSTALL}/bin:${PATH}"
 # ---- Python dependencies (torch CPU + ultralytics + edge-tts + opencv) ------
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:${PATH}"
+
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir \
     edge-tts openai Pillow opencv-python-headless numpy \
